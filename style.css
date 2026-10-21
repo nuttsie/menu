@@ -1,0 +1,394 @@
+/* ==========================================
+   1. PENGATURAN DASAR & VARIABEL WARNA
+   ========================================== */
+:root {
+    --primary-color: #2c3e50;      /* Warna utama (Biru Gelap/Abu-abu elegan) */
+    --accent-color: #e67e22;       /* Warna aksen/tombol (Oranye hangat ala kafe) */
+    --bg-color: #f8f9fa;           /* Warna latar belakang halaman */
+    --card-bg: #ffffff;            /* Warna latar kartu menu/keranjang */
+    --text-color: #333333;         /* Warna teks utama */
+    --text-muted: #777777;         /* Warna teks sekunder/pudar */
+    --border-color: #e0e0e0;       /* Warna garis pembatas */
+    --radius: 12px;                /* Standar kelengkungan sudut elemen */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   2. HEADER STYLING
+   ========================================== */
+.main-header {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 20px 16px;
+    text-align: center;
+}
+
+.header-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+}
+
+.header-container p {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin-bottom: 12px;
+}
+
+/* Kotak Input Nomor Meja di Header */
+.table-number-box {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.table-number-box label {
+    margin-right: 8px;
+}
+
+.table-number-box input {
+    width: 50px;
+    padding: 4px 6px;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+
+/* ==========================================
+   3. LAYOUT UTAMA (MOBILE-FIRST DEFAULT)
+   ========================================== */
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column; /* Secara default di HP ditumpuk vertikal */
+    gap: 20px;
+}
+
+
+/* ==========================================
+   4. BAGIAN KATALOG MENU (KOLOM KIRI)
+   ========================================== */
+.menu-section {
+    width: 100%;
+}
+
+/* Navigasi Kategori (Filter Tombol) */
+.category-filters {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto; /* Bisa digeser horizontal jika layar HP kecil */
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+.filter-btn {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border-color: var(--accent-color);
+}
+
+/* Grid Kartu Produk */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+}
+
+/* Desain Kartu Menu */
+.menu-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s;
+}
+
+.menu-card:hover {
+    transform: translateY(-3px);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.menu-info {
+    padding: 12px;
+}
+
+.menu-info h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.menu-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.menu-info .price {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 0.95rem;
+}
+
+.add-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 8px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.add-btn:hover {
+    background-color: #1a252f;
+}
+
+
+/* ==========================================
+   5. BAGIAN KERANJANG BELANJA (KOLOM KANAN)
+   ========================================== */
+.cart-section {
+    width: 100%;
+}
+
+.cart-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.cart-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 8px;
+}
+
+.cart-items-list {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 12px;
+}
+
+.empty-cart-text {
+    color: var(--text-muted);
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 16px 0;
+}
+
+/* Item di dalam keranjang */
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-item-controls button {
+    background: #ddd;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Ringkasan & Tombol Checkout */
+.cart-summary {
+    border-top: 1px solid var(--border-color);
+    padding-top: 12px;
+    margin-bottom: 16px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+.total-price-row {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.checkout-btn {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.checkout-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+
+/* ==========================================
+   6. MODAL / TIKET DIGITAL STYLING
+   ========================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden; /* Sembunyikan secara default */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    padding: 16px;
+}
+
+/* Kelas aktif untuk memunculkan modal via JavaScript */
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: #ffffff;
+    width: 100%;
+    max-width: 400px;
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.ticket-header {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.ticket-header h2 {
+    color: #27ae60;
+    font-size: 1.4rem;
+}
+
+.ticket-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.ticket-divider {
+    border: none;
+    border-top: 2px dashed var(--border-color);
+    margin: 12px 0;
+}
+
+.ticket-items-summary {
+    max-height: 150px;
+    overflow-y: auto;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.ticket-total {
+    text-align: right;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.new-order-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   7. MEDIA QUERIES (DESKTOP & TABLET ADAPTATION)
+   ========================================== */
+/* Jika layar perangkat melebihi 768px (Tablet / Laptop), aktifkan Split-Screen */
+@media (min-width: 768px) {
+    .app-container {
+        flex-direction: row; /* Ubah arah flex menjadi menyamping (horizontal) */
+        align-items: flex-start;
+    }
+
+    .menu-section {
+        flex: 2; /* Kolom menu memakan porsi lebih luas (sekitar 65-70%) */
+    }
+
+    .cart-section {
+        flex: 1; /* Kolom keranjang memakan porsi sekitar 30-35% */
+        position: sticky;
+        top: 20px; /* Membuat panel keranjang tetap menempel saat halaman di-scroll */
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr); /* Tampilkan 3 kolom produk sejajar */
+    }
+}
