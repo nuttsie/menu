@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MenuKita - Digital Cafe Menu</title>
+    <!-- Menghubungkan file styling eksternal (CSS) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= HEADER SECTION ================= -->
+    <header class="main-header">
+        <div class="header-container">
+            <h1>☕ Kafe Senja</h1>
+            <p>Silakan pilih menu favorit Anda di bawah ini</p>
+            <!-- Pilihan Nomor Meja -->
+            <div class="table-number-box">
+                <label for="tableNumber">Nomor Meja:</label>
+                <input type="text" id="tableNumber" value="01" placeholder="Contoh: 05">
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= MAIN LAYOUT (MOBILE & DESKTOP SPLIT) ================= -->
+    <main class="app-container">
+        
+        <!-- KOLOM KIRI: Katalog Menu & Kategori -->
+        <section class="menu-section">
+            <!-- Navigasi Kategori Filter -->
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">Semua</button>
+                <button class="filter-btn" data-category="kopi">Kopi</button>
+                <button class="filter-btn" data-category="snack">Snack</button>
+                <button class="filter-btn" data-category="dessert">Dessert</button>
+            </div>
+
+            <!-- Wadah Kartu Produk (Dirender otomatis via JavaScript) -->
+            <div id="menu-container" class="menu-grid">
+                <!-- Konten menu akan dimasukkan oleh script.js -->
+            </div>
+        </section>
+
+        <!-- KOLOM KANAN / BOTTOM: Panel Keranjang Belanja -->
+        <aside class="cart-section">
+            <div class="cart-card">
+                <h2>Pesanan Anda</h2>
+                
+                <!-- Daftar Item di Keranjang -->
+                <div id="cart-items" class="cart-items-list">
+                    <p class="empty-cart-text">Keranjang masih kosong.</p>
+                </div>
+
+                <!-- Rincian Total Harga -->
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Total Item:</span>
+                        <span id="total-count">0</span>
+                    </div>
+                    <div class="summary-row total-price-row">
+                        <span>Total Pembayaran:</span>
+                        <span id="total-price">Rp 0</span>
+                    </div>
+                </div>
+
+                <!-- Tombol Konfirmasi Pesanan -->
+                <button id="checkout-btn" class="checkout-btn" disabled>Konfirmasi Pesanan</button>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- ================= MODAL / POP-UP TIKET DIGITAL ================= -->
+    <div id="ticket-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="ticket-header">
+                <h2>🎉 Pesanan Berhasil!</h2>
+                <p>Tunjukkan layar ini ke kasir untuk pembayaran</p>
+            </div>
+            
+            <div class="ticket-body">
+                <div class="ticket-info">
+                    <p><strong>No. Pesanan:</strong> <span id="ticket-id">#INV-0000</span></p>
+                    <p><strong>Nomor Meja:</strong> <span id="ticket-table">01</span></p>
+                </div>
+                
+                <hr class="ticket-divider">
+                
+                <div id="ticket-items-list" class="ticket-items-summary">
+                    <!-- Ringkasan item pesanan dicetak di sini -->
+                </div>
+                
+                <div class="ticket-total">
+                    <strong>Total: <span id="ticket-total-price">Rp 0</span></strong>
+                </div>
+            </div>
+
+            <div class="ticket-footer">
+                <button id="new-order-btn" class="new-order-btn">Buat Pesanan Baru</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menghubungkan file logika pemrograman (JavaScript) -->
+    <script src="script.js"></script>
+</body>
+</html>
